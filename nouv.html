@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner Annuel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .cover-page {
+            height: 100vh;
+            background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .cover-page h1 {
+            font-size: 3.5rem;
+            margin: 0.5rem 0;
+        }
+        .cover-page h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .section {
+            padding: 1.5rem;
+        }
+        h2 {
+            margin: 0 0 1rem;
+            font-size: 1.5rem;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .goal-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .goal-column {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .goal-card {
+            background-color: #e9f7ef;
+            border: 1px solid #c1e5c3;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .goal-card span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #2E7D32;
+        }
+        .goal-card textarea {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #c1e5c3;
+            border-radius: 5px;
+            padding: 0.5rem;
+            font-size: 1rem;
+            resize: none;
+            box-sizing: border-box;
+        }
+        .week-section, .retro-section {
+            padding: 1.5rem;
+            border-top: 1px solid #ddd;
+        }
+        .task-list, .notes, .summary {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .task-list li, .notes li, .summary li {
+            background-color: #FFEBEE;
+            margin-bottom: 0.5rem;
+            padding: 1.2rem;
+            border: 1px solid #FFCDD2;
+            border-radius: 5px;
+        }
+        .notes li {
+            background-color: #E3F2FD;
+            border: 1px solid #BBDEFB;
+        }
+        .summary li {
+            background-color: #F1F8E9;
+            border: 1px solid #C5E1A5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page de garde -->
+    <div class="cover-page">
+        <h1>Mon Planner Annuel</h1>
+        <h2>Planifiez - Accomplissez - Réussissez</h2>
+        <p>Mon compagnon quotidien pour mon développement personnel et professionnel</p>
+    </div>
+	
+
+    <!-- Instructions d'utilisation -->
+    <div class="container">
+        <div class="instructions">
+            <h3>Comment utiliser ce planner ?</h3>
+            <p><strong>1. Objectifs et Vision de l'Année :</strong></p>
+            <ul>
+                <li>Remplissez vos <strong>grandes ambitions</strong> : Vision principale, objectifs de carrière, compétences clés et développement personnel.</li>
+                <li>Cela servira de feuille de route pour rester concentré toute l'année.</li>
+            </ul>
+
+            <p><strong>2. Suivi Hebdomadaire :</strong></p>
+            <ul>
+                <li>Commencez chaque semaine avec la <strong>citation motivante</strong> pour vous inspirer.</li>
+                <li>Fixez des <strong>objectifs hebdomadaires</strong> clairs et réalisables.</li>
+                <li>Identifiez les <strong>tâches prioritaires</strong> pour avancer efficacement.</li>
+                <li>En fin de semaine, complétez le <strong>résumé</strong> et partagez votre <strong>état d'esprit</strong>.</li>
+            </ul>
+
+            <p><strong>3. Rétrospective Mensuelle :</strong></p>
+            <ul>
+                <li>Faites un <strong>bilan</strong> de vos réussites et défis du mois.</li>
+                <li>Utilisez cette réflexion pour ajuster vos objectifs et progresser continuellement.</li>
+            </ul>
+
+            <p><strong>Routine Recommandée :</strong></p>
+            <ul>
+                <li>Planifiez chaque <strong>dimanche soir</strong> vos objectifs et tâches pour la semaine.</li>
+                <li>Remplissez le <strong>résumé</strong> et l'état d'esprit chaque <strong>dimanche matin</strong>.</li>
+            </ul>
+
+            <p><em>Utilisez ce planner régulièrement pour rester organisé(e), motivé(e) et en contrôle de votre développement !</em></p>
+        </div>
+    </div>
+
+    <header>
+        Planner Annuel - Objectifs et Suivi Hebdomadaire
+    </header>
+
+    <div class="container">
+		<p class="quote">"« Votre avenir dépend de ce que vous faites aujourd'hui. » - Gandhi"</p>
+        <!-- Objectifs et Vision -->
+        <div class="section">
+            <h2><strong>Objectifs et Vision de l'Année</strong></h2>
+            <div class="goal-container">
+                <!-- Colonne gauche -->
+                <div class="goal-column">
+                    <div class="goal-card">
+                        <span>Compétences à Développer</span>
+                        <textarea placeholder="Énumérez les compétences clés à développer"></textarea>
+                    </div>
+                    <div class="goal-card">
+                        <span>Développement Personnel</span>
+                        <textarea placeholder="Précisez vos priorités personnelles"></textarea>
+                    </div>
+                </div>
+                <!-- Colonne droite -->
+                <div class="goal-column">
+                    <div class="goal-card">
+                        <span>Vision Principale</span>
+                        <textarea placeholder="Décrivez votre vision principale"></textarea>
+                    </div>
+                    <div class="goal-card">
+                        <span>Objectifs de Carrière</span>
+                        <textarea placeholder="Fixez vos objectifs professionnels"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Semaine 1 -->
+        <div class="week-section">
+            <h2>Semaine du 01 au 07 Janvier</h2>
+	<p class="quote">"Le succès est la somme de petits efforts répétés jour après jour."</p>
+            <h3>Objectifs de la Semaine</h3>
+            <ul class="task-list">
+                <li>- <textarea placeholder="Vos objectifs hebdomadaires" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+            <h3>Tâches Importantes</h3>
+            <ul class="task-list">
+                <li>- <textarea placeholder="Tâche 1" style="width: 100%; height: 50px;"></textarea></li>
+                <li>- <textarea placeholder="Tâche 2" style="width: 100%; height: 50px;"></textarea></li>
+            </ul>
+            <h3>Résumé</h3>
+            <ul class="summary">
+                <li>- <textarea placeholder="Résumé de la semaine" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+            <h3>État d'esprit</h3>
+            <ul class="notes">
+                <li>- <textarea placeholder="Votre ressenti" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+        </div>
+
+	<!-- Semaine 2 -->
+        <div class="week-section">
+            <h2>Semaine du 08 au 14 Janvier</h2>
+	<blockquote>"Commencez chaque journée avec une pensée positive."</blockquote>
+            <h3>Objectifs de la Semaine</h3>
+            <ul class="task-list">
+                <li>- <textarea placeholder="Vos objectifs hebdomadaires" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+            <h3>Tâches Importantes</h3>
+            <ul class="task-list">
+                <li>- <textarea placeholder="Tâche 1" style="width: 100%; height: 50px;"></textarea></li>
+                <li>- <textarea placeholder="Tâche 2" style="width: 100%; height: 50px;"></textarea></li>
+            </ul>
+            <h3>Résumé</h3>
+            <ul class="summary">
+                <li>- <textarea placeholder="Résumé de la semaine" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+            <h3>État d'esprit</h3>
+            <ul class="notes">
+                <li>- <textarea placeholder="Votre ressenti" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+        </div>
+
+	<!-- Semaine 3 -->
+        <div class="week-section">
+            <h2>Semaine du 15 au 21 Janvier</h2>
+	<blockquote>"La discipline est la clé de l'accomplissement."</blockquote>
+            <h3>Objectifs de la Semaine</h3>
+            <ul class="task-list">
+                <li>- <textarea placeholder="Vos objectifs hebdomadaires" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+            <h3>Tâches Importantes</h3>
+            <ul class="task-list">
+                <li>- <textarea placeholder="Tâche 1" style="width: 100%; height: 50px;"></textarea></li>
+                <li>- <textarea placeholder="Tâche 2" style="width: 100%; height: 50px;"></textarea></li>
+            </ul>
+            <h3>Résumé</h3>
+            <ul class="summary">
+                <li>- <textarea placeholder="Résumé de la semaine" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+            <h3>État d'esprit</h3>
+            <ul class="notes">
+                <li>- <textarea placeholder="Votre ressenti" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+        </div>
+
+
+        <!-- Rétrospective Mensuelle -->
+        <div class="retro-section">
+            <h2>Rétrospective Mensuelle</h2>
+            <ul class="summary">
+                <li>- <textarea placeholder="Quelles ont été vos réussites ce mois-ci ?" style="width: 100%; height: 80px;"></textarea></li>
+                <li>- <textarea placeholder="Quels défis avez-vous rencontrés ?" style="width: 100%; height: 80px;"></textarea></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
